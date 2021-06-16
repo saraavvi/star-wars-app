@@ -4,6 +4,7 @@ import SearchForm from './SearchForm';
 
 export default function SwapiPage() {
     const [list, setList] = useState(null);
+    const [searchlist, setSearchList] = useState(null);
 
     useEffect(() =>{
             getCharacters();
@@ -22,15 +23,22 @@ export default function SwapiPage() {
             })
         }
         setList(characters);
+        setSearchList(characters);
     }
+
+    function filterList(searchString) {
+        console.log(searchString);
+        const filteredList = list.filter(item => item.name.includes(searchString))
+        setSearchList(filteredList);
+    } 
+    
         
     return (
         <div>
             <h1>SWAPI PAGE</h1> 
-            <SearchForm /> 
-            {list && console.log(list)}
-            {list && 
-                <List list={list}/>
+            <SearchForm filterList={filterList} /> 
+            {searchlist && 
+                <List list={searchlist}/>
             }              
         </div>
     )

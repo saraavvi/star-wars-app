@@ -1,9 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-export default function SearchForm() {
+export default function SearchForm({filterList}) {
+
+    const [searchData, setSearchData] = useState("");
+    const handleOnChange = (e) =>{
+        setSearchData(e.target.value);
+    }
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+        filterList(searchData)
+        setSearchData("");
+    }
     return (
         <div>
-            <h2>Search</h2>
+            <form onSubmit={handleOnSubmit}>
+                <input value={searchData} placeholder="search" name="search" onChange={handleOnChange}/>
+            </form>
         </div>
     )
 }
