@@ -3,6 +3,7 @@ import ListItem from './ListItem'
 
 export default function List({list}) {
 console.log("list on list component")
+console.log(list)
 
     return (
         <div>

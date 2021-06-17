@@ -11,7 +11,6 @@ export default function ListItem({item}) {
    
     return (
         <div className="border" onClick={handleOnCLick}>
-            <h3>List Item</h3>
             <h5>{item.name}</h5>
             {displayInfo && 
             <ListItemInfo gender={item.gender} skinColor={item.skin_color} />
