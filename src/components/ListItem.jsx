@@ -3,12 +3,21 @@ import ListItemInfo from './ListItemInfo';
 import styled from "styled-components";
 
 const ListItemStyled = styled.div`
-  border-top: 3px solid grey;
-  border-color: #583c98;
+  border-top: 3px solid #583c98;
+  border-left: 3px solid #fff;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
   padding: 1rem;
   margin: 1rem;
   border-radius: 5px;
   background-color: #fff;
+  &:hover {
+    border: 3px solid #583c98;
+    transition: 0.5s all ease;
+    cursor: pointer;
+      
+
+  }
 `;
 
 export default function ListItem({item}) {

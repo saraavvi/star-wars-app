@@ -11,13 +11,17 @@ const HeaderStyled = styled.div`
   color: #583c98;
   position: sticky;
   top: 0;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 export default function Header() {
   return (
     <HeaderStyled className="shadow-sm">
       <div>
-        <h1>Star wars characters</h1>
+        <h1><a href="/">Star wars characters</a></h1>
       </div>
       <div>
         <SearchForm />

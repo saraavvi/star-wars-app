@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import List from "../components/List";
-import SearchForm from "../components/SearchForm";
 import Header from "../components/Header";
 import { ListContext } from "../contexts/ListContext";
 
