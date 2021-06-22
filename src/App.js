@@ -13,16 +13,33 @@ function App() {
 
   const getCharacters = async () => {
     let characters = [];
-    for (let i = 1; i <= 9; i++) {
-      let url = `https://swapi.dev/api/people/?page=${i}`;
+    let page = 1;
+    let next;
+    do {
+      let url = `https://swapi.dev/api/people/?page=${page}`;
       await fetch(url)
         .then((response) => response.json())
         .then((data) => {
+          next = data.next;
+          console.log(data);
           data.results.forEach((item) => {
             characters.push(item);
           });
         });
-    }
+      page++;
+    } while (next);
+
+    // for (let i = 1; i <= 9; i++) {
+    //   let url = `https://swapi.dev/api/people/?page=${i}`;
+    //   await fetch(url)
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //       data.results.forEach((item) => {
+    //         characters.push(item);
+    //       });
+    //     });
+    // }
     setList(characters);
     setSearchList(characters);
   };
