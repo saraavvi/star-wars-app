@@ -3,7 +3,6 @@ import SearchForm from "./SearchForm";
 import styled from "styled-components";
 
 const HeaderStyled = styled.div`
-  //   border-bottom: 1px solid grey;
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
@@ -21,7 +20,7 @@ export default function Header() {
   return (
     <HeaderStyled className="shadow-sm">
       <div>
-        <h1><a href="/">Star wars characters</a></h1>
+        <h1><a href="/star-wars-app">Star wars characters</a></h1>
       </div>
       <div>
         <SearchForm />

@@ -8,7 +8,6 @@ input {
     height: 3rem;
     opacity: 0.3;
     border-radius: 0.3rem;
-    // border: none;
     padding: 0.5rem;
     &:hover {
       opacity: 0.7;
@@ -20,18 +19,18 @@ input {
 `;
 
 export default function SearchForm() {
-  const { list, searchData, setSearchData, setSearchList } = useContext(
+  const { list, searchInput, setSearchInput, setSearchList } = useContext(
     ListContext
   );
 
   const handleOnChange = (e) => {
-    setSearchData(e.target.value);
+    setSearchInput(e.target.value);
   };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    filterList(searchData);
-    setSearchData("");
+    filterList(searchInput);
+    setSearchInput("");
   };
 
   function filterList(searchString) {
@@ -44,7 +43,7 @@ export default function SearchForm() {
   return (
     <FormStyled onSubmit={handleOnSubmit}>
       <input
-        value={searchData}
+        value={searchInput}
         placeholder="search"
         name="search"
         onChange={handleOnChange}
