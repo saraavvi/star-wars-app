@@ -6,6 +6,7 @@ function App() {
   const [list, setList] = useState(null);
   const [searchList, setSearchList] = useState(null);
   const [searchData, setSearchData] = useState("");
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     getCharacters();
@@ -14,32 +15,23 @@ function App() {
   const getCharacters = async () => {
     let characters = [];
     let page = 1;
-    let next;
+    let next = null;
     do {
-      let url = `https://swapi.dev/api/people/?page=${page}`;
-      await fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          next = data.next;
-          console.log(data);
-          data.results.forEach((item) => {
-            characters.push(item);
+      try {
+        let url = `https://swapi.dev/api/people/?page=${page}`;
+        await fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            next = data.next;
+            data.results.forEach((item) => {
+              characters.push(item);
+            });
           });
-        });
-      page++;
-    } while (next);
-
-    // for (let i = 1; i <= 9; i++) {
-    //   let url = `https://swapi.dev/api/people/?page=${i}`;
-    //   await fetch(url)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       data.results.forEach((item) => {
-    //         characters.push(item);
-    //       });
-    //     });
-    // }
+        page++;
+      } catch (error) {
+        setIsError(true);
+      }
+    } while (next !== null);
     setList(characters);
     setSearchList(characters);
   };
@@ -51,6 +43,7 @@ function App() {
     setSearchList,
     searchData,
     setSearchData,
+    isError,
   };
   return (
     <div>
