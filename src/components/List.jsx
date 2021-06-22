@@ -5,9 +5,10 @@ import styled from "styled-components";
 
 const ListStyled = styled.div`
   display: flex;
+  align-items: start;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 2rem;
+  margin: 2rem; 
 `;
 
 export default function List() {

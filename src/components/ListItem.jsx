@@ -15,8 +15,6 @@ const ListItemStyled = styled.div`
     border: 3px solid #583c98;
     transition: 0.5s all ease;
     cursor: pointer;
-      
-
   }
 `;
 
@@ -32,7 +30,7 @@ export default function ListItem({item}) {
         <ListItemStyled onClick={handleOnCLick}>
             <h5>{item.name}</h5>
             {displayInfo && 
-            <ListItemInfo gender={item.gender} skinColor={item.skin_color} />
+            <ListItemInfo gender={item.gender} skinColor={item.skin_color} height={item.height} hair={item.hair_color} />
             }
         </ListItemStyled>
     )
