@@ -5,7 +5,7 @@ import { ListContext } from "./contexts/ListContext";
 function App() {
   const [list, setList] = useState(null);
   const [searchList, setSearchList] = useState(null);
-  const [searchInput, setSearchInput] = useState(""); // byt namn searchInput
+  const [searchInput, setSearchInput] = useState("");
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {

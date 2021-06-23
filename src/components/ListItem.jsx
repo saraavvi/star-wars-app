@@ -17,7 +17,7 @@ const ListItemStyled = styled.div`
     cursor: pointer;
   }
 `;
-
+ 
 export default function ListItem({item}) {
 
     const [displayInfo, setDisplayInfo] = useState(false);
