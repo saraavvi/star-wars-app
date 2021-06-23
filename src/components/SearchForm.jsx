@@ -35,7 +35,7 @@ export default function SearchForm() {
 
   function filterList(searchString) {
     const filteredList = list.filter((item) =>
-      item.name.includes(searchString)
+      item.name.toLowerCase().includes(searchString.toLowerCase())
     );
     setSearchList(filteredList);
   }
